@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --background-color: #ededed;
+  --font-color: #242424;
+  --hover-color: #2aa7e5;
+  --clicked-color: #479ac4;
+
+  font-family: "Segoe UI", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: var(--font-color);
+  background-color: var(--background-color);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#root {
+  flex-grow: 1;
+}
+
+section {
+  @apply py-10 md:px-14 px-5;
+}
+
+h1 {
+  color: #157aac;
+  background-image: -webkit-linear-gradient(
+    0deg,
+    #157aac 17%,
+    #1992ce 40%,
+    #2aa7e5 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  @apply font-bold text-xl;
+}
+h3 {
+  @apply font-semibold text-xl mt-4 indent-3;
+}
+h4 {
+  @apply font-medium mt-3 indent-3;
+}
+code {
+  @apply block bg-white mt-2 p-3 rounded 
+  text-gray-600 ml-3 break-words;
+}
+.topic {
+  @apply pt-5 pb-2 font-bold text-3xl;
+}
+.subtopic {
+  @apply indent-3 pt-5 pb-2 font-semibold text-xl;
+}
+.paragraph {
+  @apply indent-3;
+}
+.obs {
+  @apply block relative top-2 ml-3 w-[96%];
+}
+.divider {
+  @apply w-10/12 mt-5 m-auto border-[--hover-color];
+}
+
+nav li {
+  @apply w-[95%] p-1 my-2 bg-white rounded-md
+  border-b-2 border-gray-500 font-bold select-none
+  cursor-pointer transition-colors hover:text-[--hover-color];
+}
+nav li > a {
+  @apply block w-full h-full;
+}
+.introduction {
+  @apply border-2 border-[#2AA7E5] bg-[#B3DFF6] text-[#1992CE] hover:text-[#1992CE];
+}
+
+.button {
+  @apply transition-colors hover:text-[--hover-color];
+}
+
+.tooltip-frame {
+  @apply absolute inline-block text-center z-50;
+}
+.tooltip {
+  @apply absolute bottom-1.5 flex flex-col justify-evenly w-32 h-max bg-white
+  rounded-md drop-shadow-tooltip p-2 left-1/2 -ml-12;
+}
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #ffffff transparent transparent transparent;
+}
+
+.toggle-off {
+  @apply text-4xl text-black;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+.toggle-on {
+  @apply text-[#4A9CC2] text-4xl select-none;
+}
+
+#blue {
+  @apply text-blue-600;
+} #strong-blue {
+  @apply text-blue-900;
+}
+#green {
+  @apply text-green-600;
+}
+
+.recoil {
+  @apply block ml-9;
+}
+
+#start {
+  animation: appear 120ms;
+}
+@keyframes appear {
+  from {
+    width: 0rem;
+    color: transparent;
+  } to {
+    width: 18rem;
+  }
+}
+
+/* Width */
+::-webkit-scrollbar {
+  width: 1vw;
+  max-width: 0.3rem;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--hover-color);
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #67ccff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #111111;
+    --font-color: #DCDCDC;
+  }
+  code {
+    @apply bg-[#333333] text-[#EDEDED];
+  }
+  nav li {
+    @apply bg-[#333333] border-[#000000] shadow shadow-[#ffffff16];
+  }
+  .tooltip {
+    @apply bg-[--background-color] drop-shadow-dark;
+  }
+  .tooltip::after {
+    border-color: var(--background-color) transparent transparent transparent;
+  }
+  .toggle-off {
+    @apply text-white;
+  }
+}

@@ -68,6 +68,18 @@ const Properties = () => {
         <code>disabled: bool = true</code>
       </section>
       <hr className="divider" />
+      <section id="e-framerate">
+        <header className="topic">e-framerate</header>
+        <h4>Troybin property:</h4>
+        <code>e-framerate=1.0</code>
+        <h4>Bin property:</h4>
+        <code>
+          birthFrameRate: embed = ValueFloat {"{"}
+          <span className="recoil">constantValue: f32 = 1</span>
+          {"}"}
+        </code>
+      </section>
+      <hr className="divider" />
       <section id="e-life">
         <header className="topic">e-life</header>
         <h4>Troybin property:</h4>
@@ -92,12 +104,16 @@ const Properties = () => {
         </code>
       </section>
       <hr className="divider" />
-      <section id="e-localorient">
-        <header className="topic">e-localorient</header>
+      <section id="e-local-orient">
+        <header className="topic">e-local-orient</header>
         <h4>Troybin property:</h4>
-        <code>e-localorient=0</code>
+        <code>e-local-orient=0</code>
         <h4>Bin property:</h4>
         <code>isLocalOrientation: flag = false</code>
+        <i className="obs">
+          Obs: The default value for this property is "true", so if the troybin
+          property value is 1, you don't need to write it.
+        </i>
       </section>
       <hr className="divider" />
       <section id="e-period">
@@ -112,10 +128,91 @@ const Properties = () => {
         </code>
       </section>
       <hr className="divider" />
+      <section id="e-rate">
+        <header className="topic">e-rate</header>
+        <h4>Troybin property:</h4>
+        <code>e-rate=1.0</code>
+        <h4>Bin property:</h4>
+        <code>alphaRef: u8 = 20</code>
+      </section>
+      <hr className="divider" />
+      <section id="e-tilesize">
+        <header className="topic">e-tilesize</header>
+        <h4>Troybin property:</h4>
+        <code>e-tilesize=1000.0 0.0 0.0</code>
+        <h4>Bin property:</h4>
+        <code>
+          primitive: pointer = VfxPrimitiveCameraTrail {"{"}
+          <span className="recoil">
+            mTrail: embed = VfxTrailDefinitionData {"{"}
+            <span className="recoil">
+              mMode: u8 = 1<br />
+              <strong>
+                mBirthTilingSize: embed = ValueVector3 {"{"}
+                <span className="recoil">
+                  constantValue: vec3 = {"{ 1000, 0, 0 }"}
+                </span>
+                {"}"}
+              </strong>
+            </span>
+          </span>
+          <span className="recoil">{"}"}</span>
+          {"}"}
+        </code>
+      </section>
+      <hr className="divider" />
+      <section id="e-trail-cutoff">
+        <header className="topic">e-trail-cutoff</header>
+        <h4>Troybin property:</h4>
+        <code>e-tilesize=1000.0 0.0 0.0</code>
+        <h4>Bin property:</h4>
+        <code>
+          primitive: pointer = VfxPrimitiveCameraTrail {"{"}
+          <span className="recoil">
+            mTrail: embed = VfxTrailDefinitionData {"{"}
+            <span className="recoil">
+              mMode: u8 = 1<br />
+              <strong>
+                mBirthTilingSize: embed = ValueVector3 {"{"}
+                <span className="recoil">
+                  constantValue: vec3 = {"{ 1000, 0, 0 }"}
+                </span>
+                {"}"}
+              </strong>
+            </span>
+          </span>
+          <span className="recoil">{"}"}</span>
+          {"}"}
+        </code>
+      </section>
+      <hr className="divider" />
+      <section id="e-uvoffset">
+        <header className="topic">e-uvoffset</header>
+        <h4>Troybin property:</h4>
+        <code>e-uvoffset=-2.0 0.0</code>
+        <h4>Bin property:</h4>
+        <code>
+          birthUVOffset: embed = ValueVector2 {"{"}
+          <span className="recoil">constantValue: vec2 = {"{ -2, 0 }"}</span>
+          {"}"}
+        </code>
+      </section>
+      <hr className="divider" />
+      <section id="e-uvoffset-mult">
+        <header className="topic">e-uvoffset-mult</header>
+        <h4>Troybin property:</h4>
+        <code>e-uvoffset-mult=0.0 1.0</code>
+        <h4>Bin property:</h4>
+        <code>
+          birthUVOffsetMult: embed = ValueVector2 {"{"}
+          <span className="recoil">constantValue: vec2 = {"{ 0, 1 }"}</span>
+          {"}"}
+        </code>
+      </section>
       <section id="e-uvscroll">
         <header className="topic">e-uvscroll</header>
         <h4>Troybin property:</h4>
-        <code>e-uvscroll=-2 0</code>
+        <code>e-uvscroll=-2.0 0.0</code>
         <h4>Bin property:</h4>
         <code>emitterUvScrollRate: vec2 = {"{ -2, 0 }"}</code>
       </section>
@@ -123,7 +220,7 @@ const Properties = () => {
       <section id="e-uvscroll-mult">
         <header className="topic">e-uvscroll-mult</header>
         <h4>Troybin property:</h4>
-        <code>e-uvscroll-mult=0 1</code>
+        <code>e-uvscroll-mult=0.0 1.0</code>
         <h4>Bin property:</h4>
         <code>emitterUvScrollRateMult: vec2 = {"{ 0, 1 }"}</code>
       </section>
@@ -143,13 +240,15 @@ const Properties = () => {
       <section id="p-beammode">
         <header className="topic">p-beammode</header>
         <h4>Troybin property:</h4>
-        <code>p-beammode=1</code>
+        <code></code>
         <h4>Bin property:</h4>
         <code>
           primitive: pointer = VfxPrimitiveBeam {"{"}
           <span className="recoil">
             mBeam: embed = VfxBeamDefinitionData {"{"}
-            <span className="recoil">mMode: u8 = 1</span>
+            <span className="recoil">
+              <strong>mMode: u8 = 1</strong>
+            </span>
           </span>
           <span className="recoil">{"}"}</span>
           {"}"}
@@ -177,7 +276,7 @@ const Properties = () => {
       <section id="p-coloroffset">
         <header className="topic">p-coloroffset</header>
         <h4>Troybin property:</h4>
-        <code>p-coloroffset=0 0.2</code>
+        <code>p-coloroffset=0.0 0.2</code>
         <h4>Bin property:</h4>
         <code>colorLookUpOffsets: vec2 = {"{ 0, 0.200000003 }"}</code>
       </section>
@@ -246,10 +345,22 @@ const Properties = () => {
         <code>frameRate: f32 = 16</code>
       </section>
       <hr className="divider" />
+      <section id="p-life">
+        <header className="topic">p-life</header>
+        <h4>Troybin property:</h4>
+        <code>p-life=3.0</code>
+        <h4>Bin property:</h4>
+        <code>
+          particleLifetime: embed = ValueFloat {"{"}
+          <span className="recoil">constantValue: f32 = 3</span>
+          {"}"}
+        </code>
+      </section>
+      <hr className="divider" />
       <section id="p-linger">
         <header className="topic">p-linger</header>
         <h4>Troybin property:</h4>
-        <code>p-linger=1</code>
+        <code>p-linger=1.0</code>
         <h4>Bin property:</h4>
         <code>
           particleLinger: option{"[f32]"} = {"{"}
@@ -302,6 +413,42 @@ const Properties = () => {
         <code>p-numframes=4</code>
         <h4>Bin property:</h4>
         <code>numFrames: u16 = 4</code>
+      </section>
+      <hr className="divider" />
+      <section id="p-offset">
+        <header className="topic">p-offset</header>
+        <h4>Troybin property:</h4>
+        <code>p-offset=0.0 10.0 0.0</code>
+        <h4>Bin property:</h4>
+        <code>
+          shape: embed = VfxShape {"{"}
+          <span className="recoil">
+            emitOffset: embed = ValueVector3 {"{"}
+            <span className="recoil">
+              constantValue: vec3 = {"{ 0, 10, 0 }"}
+            </span>
+            {"}"}
+          </span>
+          {"}"}
+        </code>
+      </section>
+      <hr className="divider" />
+      <section id="p-postoffset">
+        <header className="topic">p-postoffset</header>
+        <h4>Troybin property:</h4>
+        <code>p-postoffset=0.0 10.0 0.0</code>
+        <h4>Bin property:</h4>
+        <code>
+          shape: embed = VfxShape {"{"}
+          <span className="recoil">
+            birthTranslation: embed = ValueVector3 {"{"}
+            <span className="recoil">
+              constantValue: vec3 = {"{ 0, 10, 0 }"}
+            </span>
+            {"}"}
+          </span>
+          {"}"}
+        </code>
       </section>
       <hr className="divider" />
       <section id="p-projection-fading">
@@ -420,20 +567,30 @@ const Properties = () => {
         </code>
       </section>
       <hr className="divider" />
-      <section id="e-rate">
-        <header className="topic">e-rate</header>
-        <h4>Troybin property:</h4>
-        <code>e-rate=1.0</code>
-        <h4>Bin property:</h4>
-        <code>alphaRef: u8 = 20</code>
-      </section>
-      <hr className="divider" />
       <section id="p-uvmode">
         <header className="topic">p-uvmode</header>
         <h4>Troybin property:</h4>
         <code>p-uvmode=2</code>
         <h4>Bin property:</h4>
         <code>uvMode: u8 = 2</code>
+      </section>
+      <hr className="divider" />
+      <section id="p-worldaccel">
+        <header className="topic">p-worldaccel</header>
+        <h4>Troybin property:</h4>
+        <code>p-worldaccel=0.0 -800.0 0.0</code>
+        <h4>Bin property:</h4>
+        <code>
+          worldAcceleration: embed = IntegratedValueVector3 {"{"}
+          constantValue: vec3 = {"{ 0, -10, 0 }"}
+          dynamics: pointer = VfxAnimatedVector3fVariableData {"{"}
+          times: list[f32] = {"{"}0{"}"}
+          values: list[vec3] = {"{"}
+          {"{ 0, -10, 0 }"}
+          {"}"}
+          {"}"}
+          {"}"}
+        </code>
       </section>
       <hr className="divider" />
       <section id="pass">
@@ -458,6 +615,10 @@ const Properties = () => {
         <code>single-particle=1</code>
         <h4>Bin property:</h4>
         <code>isSingleParticle: flag = true</code>
+        <i className="obs">
+          Obs: The default value for this property is "false", so if the troybin
+          property value is 0, you don't need to write it.
+        </i>
       </section>
       <hr className="divider" />
       <section id="uniformscale">
@@ -466,6 +627,10 @@ const Properties = () => {
         <code>uniformscale=1</code>
         <h4>Bin property:</h4>
         <code>isUniformScale: flag = true</code>
+        <i className="obs">
+          Obs: The default value for this property is "false", so if the troybin
+          property value is 0, you don't need to write it.
+        </i>
       </section>
     </>
   );

@@ -2,6 +2,7 @@ import { useState, useContext, createContext } from "react";
 import NavBar from "./components/UI/NavBar";
 import MobileNavBar from "./components/UI/MobileNavBar";
 import DocFrame from "./components/DocFrame";
+import About from "./components/UI/About";
 
 type ThemeContext = {
   theme: boolean;
@@ -19,13 +20,18 @@ export default function App() {
   const [theme, setTheme] = useState(false);
   const [navbar, showNavbar] = useState(false);
   const [isOver, setIsOver] = useState(false);
+  const [modal, setModal] = useState(false);
 
   return (
     <div className={theme ? "dark" : "light"}>
       <ThemeContext.Provider value={{ theme, setTheme }}>
-        <NavBar />
-        <MobileNavBar state={{navbar, showNavbar}} mouse={{isOver, setIsOver}} />
-        <DocFrame state={{navbar, showNavbar}} mouse={isOver} />
+        <NavBar state={setModal} />
+        <MobileNavBar
+          state={{ navbar, showNavbar }}
+          mouse={{ isOver, setIsOver }}
+        />
+        <DocFrame state={{ navbar, showNavbar }} mouse={isOver} />
+        <About display={{ modal, setModal }} />
       </ThemeContext.Provider>
     </div>
   );

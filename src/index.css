@@ -69,8 +69,8 @@ h4 {
   @apply font-medium mt-3 indent-3;
 }
 code {
-  @apply block bg-white mt-2 p-3 rounded 
-  text-gray-600 ml-3 break-words;
+  @apply block bg-white mt-2 p-3 rounded text-gray-600
+  ml-3 break-words dark:bg-[#333333] dark:text-[#EDEDED];
 }
 .topic {
   @apply pt-5 pb-2 font-bold text-3xl;
@@ -87,21 +87,26 @@ code {
 .divider {
   @apply w-10/12 mt-5 m-auto border-[--hover-color];
 }
+.modal {
+  @apply flex-col justify-center items-center fixed inset-0 top-1/4 left-[max(25%,calc(50%-23rem))] z-[200]
+  w-1/2 max-w-3xl h-1/2 bg-white dark:bg-[#333333] rounded-xl p-2 drop-shadow-tooltip
+  text-4xl font-bold;
+}
 
 nav li {
-  @apply w-[95%] p-1 my-2 bg-white rounded-md
-  border-b-2 border-gray-500 font-bold select-none
+  @apply w-[95%] p-1 my-2 bg-white dark:bg-[#333333] rounded-md
+  border-b-2 border-gray-500 dark:border-[#000000] font-bold select-none
   cursor-pointer transition-colors hover:text-[--hover-color];
 }
 nav li > a {
   @apply block w-full h-full;
 }
 .introduction {
-  @apply border-2 border-[#2AA7E5] bg-[#B3DFF6] text-[#1992CE] hover:text-[#1992CE];
+  @apply border-2 border-[#2AA7E5] dark:border-[#2AA7E5] bg-[#B3DFF6] text-[#1992CE] hover:text-[#1992CE];
 }
 
 .button {
-  @apply transition-colors hover:text-[--hover-color];
+  @apply transition-colors hover:text-[--hover-color] select-none;
 }
 
 .tooltip-frame {
@@ -109,17 +114,11 @@ nav li > a {
 }
 .tooltip {
   @apply absolute bottom-1.5 flex flex-col justify-evenly w-32 h-max bg-white
-  rounded-md drop-shadow-tooltip p-2 left-1/2 -ml-12;
+  rounded-md drop-shadow-tooltip p-2 left-1/2 -ml-12 dark:bg-[#111111] dark:drop-shadow-dark;
 }
 .tooltip::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #ffffff transparent transparent transparent;
+  @apply content-[""] absolute top-full left-1/2 -ml-[5px] border-[5px]
+  border-solid border-transparent border-t-[#ffffff] dark:border-t-[#111111];
 }
 
 .toggle-off {
@@ -133,7 +132,8 @@ nav li > a {
 
 #blue {
   @apply text-blue-600;
-} #strong-blue {
+}
+#strong-blue {
   @apply text-blue-900;
 }
 #green {
@@ -151,7 +151,8 @@ nav li > a {
   from {
     width: 0rem;
     color: transparent;
-  } to {
+  }
+  to {
     width: 18rem;
   }
 }
@@ -174,6 +175,7 @@ nav li > a {
   background: #67ccff;
 }
 
+/*
 @media (prefers-color-scheme: dark) {
   :root {
     --background-color: #111111;
@@ -195,3 +197,4 @@ nav li > a {
     @apply text-white;
   }
 }
+*/

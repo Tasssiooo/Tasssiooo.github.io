@@ -8,7 +8,7 @@ const Settings = () => {
     <div className="tooltip-frame">
       <div className="tooltip">
         <div className="flex flex-row items-center gap-1.5 w-full bg-slate-200 dark:bg-[#333333] rounded-sm px-1.5">
-          <span className="text-sm font-bold">Dark mode</span>
+          <span className="text-sm font-bold dark:text-[#DCDCDC]">Dark mode</span>
           <IoToggle
             aria-label="toggle dark mode"
             role="button"

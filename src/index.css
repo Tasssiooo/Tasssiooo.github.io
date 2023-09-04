@@ -59,6 +59,9 @@ h1 {
   -webkit-text-fill-color: transparent;
 }
 
+a, a:visited {
+  text-decoration: none;
+}
 h2 {
   @apply font-bold text-xl;
 }
@@ -88,8 +91,8 @@ code {
   @apply w-10/12 mt-5 m-auto border-[--hover-color];
 }
 .modal {
-  @apply flex-col justify-center items-center fixed inset-0 top-1/4 left-[max(25%,calc(50%-23rem))] z-[200]
-  w-1/2 max-w-3xl h-1/2 bg-white dark:bg-[#333333] rounded-xl p-2 drop-shadow-tooltip
+  @apply flex flex-col justify-between fixed inset-0 top-[20%] left-[max(25%,calc(50%-23rem))] z-[200]
+  w-1/2 max-w-3xl min-h-max max-h-96 bg-white dark:bg-[#333333] rounded-xl p-2 drop-shadow-tooltip
   text-4xl font-bold;
 }
 
@@ -142,6 +145,12 @@ nav li > a {
 
 .recoil {
   @apply block ml-9;
+}
+.logo {
+  @apply min-w-[64px] w-full max-w-md cursor-pointer transition-all;
+}
+.src {
+  @apply block md:text-2xl text-lg;
 }
 
 #start {

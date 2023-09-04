@@ -4,13 +4,15 @@ import {
   IoInformationCircle,
 } from "react-icons/io5";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Settings from "./Settings";
+import list from "../../../data/db";
 
 type States = {
   state: {
     navbar: boolean;
     showNavbar: (n: any) => void;
+    setModal: (m: any) => void;
   };
   mouse: {
     isOver: boolean;
@@ -19,23 +21,8 @@ type States = {
 };
 
 const MobileNavBar = ({ state, mouse }: States) => {
-  const API_URL = "http://localhost:3500/list";
   const [tooltip, setTooltip] = useState("");
-  const [list, setList] = useState([]);
   const [search, setSearch] = useState("");
-
-  useEffect(() => {
-    const fetchProps = async () => {
-      try {
-        const response = await fetch(API_URL);
-        const listProps = await response.json();
-        setList(listProps);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchProps();
-  }, []);
 
   return (
     <nav
@@ -71,7 +58,7 @@ const MobileNavBar = ({ state, mouse }: States) => {
             </li>
             {list
               .filter((p: string) => p.toLowerCase().includes(search))
-              .map((prop: string, i) => (
+              .sort().map((prop: string, i) => (
                 <li key={i}>
                   <a href={`#${prop}`}>{prop}</a>
                 </li>
@@ -83,6 +70,7 @@ const MobileNavBar = ({ state, mouse }: States) => {
             aria-label="about"
             role="button"
             className="button text-[2.1rem] dark:text-[#DCDCDC]"
+            onClick={() => state.setModal((prev: boolean) => !prev)}
           />
           <div
             onMouseOver={() => setTooltip("settings")}

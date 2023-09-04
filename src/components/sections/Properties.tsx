@@ -52,12 +52,62 @@ const Properties = () => {
         </code>
       </section>
       <hr className="divider" />
+      <section id="Particle-Acceleration">
+        <header className="topic">Particle-Acceleration</header>
+        <h4>Troybin property:</h4>
+        <code>Particle-Acceleration=-1000.0 0.0 -1000.0</code>
+        <h4>Bin property:</h4>
+        <code>
+          acceleration: embed = ValueVector3 {"{"}
+          <span className="recoil">
+            constantValue: vec3 = {"{ -1000, 0, -1000 }"}
+          </span>
+          {"}"}
+        </code>
+      </section>
+      <hr className="divider" />
+      <section id="Particle-Drag">
+        <header className="topic">Particle-Drag</header>
+        <h4>Troybin property:</h4>
+        <code>Particle-Drag=-1000.0 0.0 -1000.0</code>
+        <h4>Bin property:</h4>
+        <code>
+          drag: embed = ValueVector3 {"{"}
+          <span className="recoil">
+            constantValue: vec3 = {"{ -1000, 0, -1000 }"}
+          </span>
+          {"}"}
+        </code>
+      </section>
+      <hr className="divider" />
+      <section id="Particle-Velocity">
+        <header className="topic">Particle-Velocity</header>
+        <h4>Troybin property:</h4>
+        <code>Particle-Velocity=-1000.0 0.0 -1000.0</code>
+        <h4>Bin property:</h4>
+        <code>
+          velocity: embed = ValueVector3 {"{"}
+          <span className="recoil">
+            constantValue: vec3 = {"{ -1000, 0, -1000 }"}
+          </span>
+          {"}"}
+        </code>
+      </section>
+      <hr className="divider" />
       <section id="e-alpharef">
         <header className="topic">e-alpharef</header>
         <h4>Troybin property:</h4>
         <code>e-alpharef=20</code>
         <h4>Bin property:</h4>
         <code>alphaRef: u8 = 20</code>
+      </section>
+      <hr className="divider" />
+      <section id="e-censor-modulate">
+        <header className="topic">e-censor-modulate</header>
+        <h4>Troybin property:</h4>
+        <code>e-censor-modulate=0.0 1.0 1.0 1.0</code>
+        <h4>Bin property:</h4>
+        <code>censorModulateValue: vec4 = {"{ 0, 1, 1, 1 }"}</code>
       </section>
       <hr className="divider" />
       <section id="e-disabled">
@@ -133,7 +183,11 @@ const Properties = () => {
         <h4>Troybin property:</h4>
         <code>e-rate=1.0</code>
         <h4>Bin property:</h4>
-        <code>alphaRef: u8 = 20</code>
+        <code>
+          rate: embed = ValueFloat {"{"}
+          <span className="recoil">constantValue: f32 = 1</span>
+          {"}"}
+        </code>
       </section>
       <hr className="divider" />
       <section id="e-tilesize">
@@ -147,6 +201,8 @@ const Properties = () => {
             mTrail: embed = VfxTrailDefinitionData {"{"}
             <span className="recoil">
               mMode: u8 = 1<br />
+              mCutoff: f32 = 600
+              <br />
               <strong>
                 mBirthTilingSize: embed = ValueVector3 {"{"}
                 <span className="recoil">
@@ -164,7 +220,7 @@ const Properties = () => {
       <section id="e-trail-cutoff">
         <header className="topic">e-trail-cutoff</header>
         <h4>Troybin property:</h4>
-        <code>e-tilesize=1000.0 0.0 0.0</code>
+        <code>e-trail-cutoff=600.0</code>
         <h4>Bin property:</h4>
         <code>
           primitive: pointer = VfxPrimitiveCameraTrail {"{"}
@@ -172,13 +228,40 @@ const Properties = () => {
             mTrail: embed = VfxTrailDefinitionData {"{"}
             <span className="recoil">
               mMode: u8 = 1<br />
-              <strong>
-                mBirthTilingSize: embed = ValueVector3 {"{"}
-                <span className="recoil">
-                  constantValue: vec3 = {"{ 1000, 0, 0 }"}
-                </span>
-                {"}"}
-              </strong>
+              <strong>mCutoff: f32 = 600</strong>
+              <br />
+              mBirthTilingSize: embed = ValueVector3 {"{"}
+              <span className="recoil">
+                constantValue: vec3 = {"{ 1000, 0, 0 }"}
+              </span>
+              {"}"}
+            </span>
+          </span>
+          <span className="recoil">{"}"}</span>
+          {"}"}
+        </code>
+      </section>
+      <hr className="divider" />
+      <section id="e-trail-smoothing">
+        <header className="topic">e-trail-smoothing</header>
+        <h4>Troybin property:</h4>
+        <code>e-trail-smoothing=2</code>
+        <h4>Bin property:</h4>
+        <code>
+          primitive: pointer = VfxPrimitiveCameraTrail {"{"}
+          <span className="recoil">
+            mTrail: embed = VfxTrailDefinitionData {"{"}
+            <span className="recoil">
+              mMode: u8 = 1<br />
+              mCutoff: f32 = 600
+              <br />
+              mBirthTilingSize: embed = ValueVector3 {"{"}
+              <span className="recoil">
+                constantValue: vec3 = {"{ 1000, 0, 0 }"}
+              </span>
+              {"}"}
+              <br />
+              <strong>mSmoothingMode: u8 = 2</strong>
             </span>
           </span>
           <span className="recoil">{"}"}</span>
@@ -225,6 +308,20 @@ const Properties = () => {
         <code>emitterUvScrollRateMult: vec2 = {"{ 0, 1 }"}</code>
       </section>
       <hr className="divider" />
+      <section id="p-accel">
+        <header className="topic">p-accel</header>
+        <h4>Troybin property:</h4>
+        <code>p-accel=-1800.0 0.0 -4000.0</code>
+        <h4>Bin property:</h4>
+        <code>
+          birthAcceleration: embed = ValueVector3 {"{"}
+          <span className="recoil">
+            constantValue: vec3 = {"{ -1800, 0, -4000 }"}
+          </span>
+          {"}"}
+        </code>
+      </section>
+      <hr className="divider" />
       <section id="p-backfaceon">
         <header className="topic">p-backfaceon</header>
         <h4>Troybin property:</h4>
@@ -240,7 +337,7 @@ const Properties = () => {
       <section id="p-beammode">
         <header className="topic">p-beammode</header>
         <h4>Troybin property:</h4>
-        <code></code>
+        <code>p-beammode=1</code>
         <h4>Bin property:</h4>
         <code>
           primitive: pointer = VfxPrimitiveBeam {"{"}
@@ -333,6 +430,42 @@ const Properties = () => {
             distortionMode: u8 = 2<br />
             normalMapTexture: string = "path/texture.dds"
           </span>
+          {"}"}
+        </code>
+      </section>
+      <hr className="divider" />
+      <section id="p-drag">
+        <header className="topic">p-drag</header>
+        <h4>Troybin property:</h4>
+        <code>p-drag=8.0 8.0 8.0</code>
+        <h4>Bin property:</h4>
+        <code>
+          birthDrag: embed = ValueVector3 {"{"}
+          <span className="recoil">constantValue: vec3 = {"{ 8, 8, 8 }"}</span>
+          {"}"}
+        </code>
+      </section>
+      <hr className="divider" />
+      <section id="p-flexoffset">
+        <header className="topic">p-flexoffset</header>
+        <h4>Troybin property:</h4>
+        <code>p-flexoffset=8.0 8.0 8.0</code>
+        <h4>Bin property:</h4>
+        <code>
+          flexBirthTranslation: pointer = FlexTypeFloat {"{"}
+          <span className="recoil">mValue: f32 = 0.005</span>
+          {"}"}
+        </code>
+      </section>
+      <hr className="divider" />
+      <section id="p-flexscale">
+        <header className="topic">p-flexscale</header>
+        <h4>Troybin property:</h4>
+        <code>p-flexscale=0.005</code>
+        <h4>Bin property:</h4>
+        <code>
+          flexScaleBirthScale: pointer = FlexTypeFloat {"{"}
+          <span className="recoil">mValue: f32 = 0.005</span>
           {"}"}
         </code>
       </section>
@@ -491,6 +624,18 @@ const Properties = () => {
         </code>
       </section>
       <hr className="divider" />
+      <section id="p-quadrot">
+        <header className="topic">p-quadrot</header>
+        <h4>Troybin property:</h4>
+        <code>p-quadrot=90.0 0.0 0.0</code>
+        <h4>Bin property:</h4>
+        <code>
+          birthRotation0: embed = ValueVector3 {"{"}
+          <span className="recoil">constantValue: vec3 = {"{ 90, 0, 0 }"}</span>
+          {"}"}
+        </code>
+      </section>
+      <hr className="divider" />
       <section id="p-randomstartframe">
         <header className="topic">p-randomstartframe</header>
         <h4>Troybin property:</h4>
@@ -543,6 +688,14 @@ const Properties = () => {
         <code>p-startframe=4</code>
         <h4>Bin property:</h4>
         <code>startFrame: u16 = 4</code>
+      </section>
+      <hr className="divider" />
+      <section id="p-texdiv">
+        <header className="topic">p-texdiv</header>
+        <h4>Troybin property:</h4>
+        <code>p-texdiv=4.0 1.0</code>
+        <h4>Bin property:</h4>
+        <code>texDiv: vec2 = {"{ 4, 1 }"}</code>
       </section>
       <hr className="divider" />
       <section id="p-texture">

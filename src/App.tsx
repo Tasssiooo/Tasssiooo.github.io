@@ -27,7 +27,7 @@ export default function App() {
       <ThemeContext.Provider value={{ theme, setTheme }}>
         <NavBar state={setModal} />
         <MobileNavBar
-          state={{ navbar, showNavbar }}
+          state={{ navbar, showNavbar, setModal }}
           mouse={{ isOver, setIsOver }}
         />
         <DocFrame state={{ navbar, showNavbar }} mouse={isOver} />

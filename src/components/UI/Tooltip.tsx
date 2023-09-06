@@ -1,7 +1,9 @@
-const Tooltip = () => {
+const Tooltip = ({ text, left }: { text: string; left: string }) => {
   return (
-    <div>Tooltip</div>
-  )
-}
+    <div className="tooltip" style={{ left: left }}>
+      {text}
+    </div>
+  );
+};
 
 export default Tooltip;

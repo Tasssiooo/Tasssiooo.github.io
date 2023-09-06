@@ -2,19 +2,20 @@ import reactIcons_logo from "../UI/assets/react-icons-logo.svg";
 import react_logo from "../UI/assets/react-logo512.png";
 import tailwindcss_logo from "../UI/assets/tailwindcss-mark.svg";
 import vite_logo from "../UI/assets/logo-with-shadow.png";
-import { IoLogoGithub } from "react-icons/io5";
 
-type Display = {
+type State = {
   display: {
     modal: boolean;
     setModal: (m: any) => void;
   };
 };
 
-const About = ({ display }: Display) => {
+const About = ({ display }: State) => {
   return (
     <div className="modal" style={{ display: display.modal ? "flex" : "none" }}>
-      <h1 className="text-xl text-center">This dictionary was made with:</h1>
+      <h1 className="text-xl text-center">
+        This dictionary was made using typescript with:
+      </h1>
       <div className="h-3/5">
         <div className="flex flex-row justify-evenly items-center mt-5">
           <a
@@ -65,14 +66,6 @@ const About = ({ display }: Display) => {
           <span className="src">Icons by React-Icons</span>
         </div>
       </div>
-      <a
-        href="https://github.com/Tasssiooo/Tasssiooo.github.io"
-        target="_blank"
-        className="flex flex-row justify-center items-center md:gap-2 text-center px-2"
-      >
-        <IoLogoGithub role="img" aria-label="Github repository link" />
-        <i className="text-base">Github repository, made by Tássio</i>
-      </a>
     </div>
   );
 };

@@ -4,13 +4,12 @@ import Properties from "./sections/Properties";
 
 type States = {
   state: {
-    navbar: boolean;
     showNavbar: (n: any) => void;
+    setModal: (m: any) => void;
   };
-  mouse: boolean;
 };
 
-const DocFrame = ({ state, mouse }: States) => {
+const DocFrame = ({ state }: States) => {
   return (
     <>
       <nav className="flex flex-row fixed top-0 w-screen p-3 z-[100] bg-[--background-color] dark:bg-[#111111] border-b border-gray-300">
@@ -25,8 +24,11 @@ const DocFrame = ({ state, mouse }: States) => {
         </h1>
       </nav>
       <main
-        className="absolute inset-0 max-w-5xl min-h-screen max-h-max dark:bg-[#111111] dark:text-[#DCDCDC] md:left-[max(19rem,calc(50%-25rem))] top-8 py-10"
-        onClick={() => !mouse && state.showNavbar(false)}
+        className="absolute inset-0 max-w-5xl min-h-screen max-h-max bg-[--background-color] dark:bg-[#111111] dark:text-[#DCDCDC] md:left-[max(19rem,calc(50%-25rem))] top-8 py-10"
+        onClick={() => {
+          state.showNavbar(false);
+          state.setModal(false);
+        }}
       >
         <Introduction />
         <hr className="w-10/12 mt-5 m-auto border-[--hover-color]" />

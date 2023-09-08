@@ -74,6 +74,12 @@ code {
   @apply block bg-white mt-2 p-3 rounded text-gray-600
   ml-3 break-words dark:bg-[#333333] dark:text-[#EDEDED];
 }
+.list {
+  @apply list-disc ml-5 p-5;
+}
+.list a {
+  @apply font-semibold text-[#1992ce];
+}
 .topic {
   @apply pt-5 pb-2 font-bold text-3xl;
 }

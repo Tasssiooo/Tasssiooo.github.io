@@ -44,20 +44,11 @@ const Introduction = () => {
         <code>p-scale=115 115 0</code>
         <h4>Bin size property:</h4>
         <code>
-          birthScale0: <span id="blue">embed</span> <span id="blue">=</span>{" "}
-          <span id="blue">ValueVector3</span> <span id="purple">{"{"}</span>
-          <br />
-          <p className="indent-5">
-            constantValue: <span id="blue">vec3</span> ={" "}
-            <span id="strong-blue">{"{"}</span>{" "}
-            <span id="green">115, 115, 0</span>{" "}
-            <span id="strong-blue">{"}"}</span>
-          </p>
-          <span id="purple">{"}"}</span>
-          <br />
-          <span id="strong-green">
-            //obs: i think it's qml language ¯\_{"("}ツ{")"}_/¯
+          birthScale0: embed = ValueVector3 {"{"}
+          <span className="recoil">
+            constantValue: vec3 = {"{ 115, 115, 0 }"}
           </span>
+          {"}"}
         </code>
         <h3>Comparison of troybin and bin format</h3>
         <h4>Troybin format:</h4>
@@ -144,6 +135,59 @@ const Introduction = () => {
             </span>
           </span>
         </code>
+        <h2 className="subtopic">Useful tools</h2>
+        <p className="paragraph">
+          There are some useful tools you can use to help you writing the code:
+        </p>
+        <ul className="list">
+          <li>
+            <a
+              href="https://leischii.github.io/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              Troygrade
+            </a>
+            <br />
+            <span className="text-sm">
+              - Currently the most updated and effective troybin converter, by{" "}
+              <a
+                href="https://github.com/Leischii"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Leischii
+              </a>{" "}
+              {"(It still has some bugs)"}.
+            </span>
+          </li>
+          <li className="mt-3">
+            <a
+              href="https://www.dropbox.com/scl/fi/c6kv999lixzfrf7a4lmx9/TroybinConverter.rar?rlkey=q5mi3jvu6ugcxel51qgwbjsra&dl=0"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Troybin converter
+            </a>
+            <br />
+            <span className="text-sm">
+              - An forgotten project of{" "}
+              <a
+                href="https://github.com/moonshadow565"
+                rel="noreferrer"
+                target="_blank"
+                className="text-blue-500"
+              >
+                moonshadow565
+              </a>
+              , a troybin converter.
+              <br />
+              {
+                "(It is not 100% effective, however it is still useful to write a big part of the code)"
+              }
+            </span>
+          </li>
+        </ul>
       </div>
     </section>
   );
